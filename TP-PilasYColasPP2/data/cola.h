@@ -19,6 +19,12 @@ struct Cola {
     NodoCola* final;
 };
 
+//Encolar dato
+void enqueue(Cola&);
+
+//Desencolar dato
+InfoReserva dequeue(Cola&);
+
 //Cargo InfoReserva en la cola
 void encolarManual(Cola&);
 

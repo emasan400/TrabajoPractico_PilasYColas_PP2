@@ -3,10 +3,17 @@
 //
 
 #include "../data/funcionesCompartidas.h"
+#include "../data/cola.h"
+#include "../data/pila.h"
 
 //Hago dequeue y guardo dato sacado en Pila
 void procesarSiguiente(Cola& evento, Pila& accion) {
 
+     //Consigo último dato de la cola
+     InfoReserva datoATrabajar = dequeue(evento);
+
+     //Lo agrego al principio de la pila
+     pushPila(accion,datoATrabajar);
 }
 
 //Hago busqueda recursiva dentro de Cola y Pila

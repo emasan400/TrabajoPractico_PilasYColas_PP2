@@ -25,6 +25,7 @@ void mostrarMenu() {
 }
 
 void loopMenu() {
+
     Cola eventos{};      // tu struct/clase
 
     //Inicializo estructura cola
@@ -32,6 +33,10 @@ void loopMenu() {
     eventos.frente = nullptr;
 
     Pila acciones{};     // tu struct/clase
+
+    //Inicializo estructura pila
+    acciones.inicio = nullptr;
+
     int op;
     do {
         mostrarMenu();

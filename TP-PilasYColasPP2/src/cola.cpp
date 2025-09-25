@@ -7,6 +7,60 @@
 #include <iostream>
 #include <ostream>
 
+/*
+* Mejoras! Se podian hacer funciones aparte con lo hecho en la guia y contenido de pagina 4, Clase 6, UD 4
+*/
+
+void enqueue(Cola& evento, InfoReserva reserva){
+
+    // Crear NUEVO nodo con la info leida!
+    NodoCola* nuevoNodo = new NodoCola;
+
+    nuevoNodo->info = reserva;
+    nuevoNodo->siguiente = nullptr;
+
+    // Agregar a la cola sin elementos (Caso 1er entrada)
+    if (evento.frente == nullptr) {
+        evento.frente = nuevoNodo;
+        evento.final = nuevoNodo;
+    } else {
+        // Agregar a la cola preexistente (Caso agregar al final "FIFO")
+        evento.final->siguiente = nuevoNodo;
+        evento.final = nuevoNodo;
+    }
+}
+
+InfoReserva dequeue(Cola& evento) {
+
+    //Dato a retornar, creado por facilidad personal para devolver datos (Posible optimizacion en v2 con #include <queue>) LIMITACION: Si el dato a devolver es null puede generar error
+    InfoReserva ret = {};
+
+    //Caso lista vacia. Manejo de error en funcionesCompartidas.cpp
+    if (!evento.frente) {
+        cout << "No hay reservas!" << endl;
+        return ret;
+    }
+
+    //Caso "normal"
+
+    //Consigo info a retornar del primer elemento de la cola (FIFO)
+    ret = evento.frente->info;
+
+    //Preparo delete del nodo sin desindexar la cola
+    NodoCola* aux = evento.frente;
+    evento.frente = evento.frente->siguiente;
+
+    //Caso donde evento.frente->siguiente es el final de la cola!
+    if (!evento.frente) {
+        evento.final = nullptr;
+    }
+
+    //Libero memoria
+    delete aux;
+
+    return ret;
+}
+
 //Cargo InfoReserva de manera manual en la cola
 void encolarManual(Cola& evento) {
 
@@ -49,25 +103,7 @@ void encolarManual(Cola& evento) {
     cin >> reserva.fechaDevolucion;
     cout << endl;
 
-    /*
-    * Mejora! Plantear parte de abajo del comentario como una funcion queuque
-    */
-
-    // Crear NUEVO nodo con la info leida!
-    NodoCola* nuevoNodo = new NodoCola;
-
-    nuevoNodo->info = reserva;
-    nuevoNodo->siguiente = nullptr;
-
-    // Agregar a la cola sin elementos (Caso 1er entrada)
-    if (evento.frente == nullptr) {
-        evento.frente = nuevoNodo;
-        evento.final = nuevoNodo;
-    } else {
-        // Agregar a la cola preexistente (Caso agregar al final "FIFO")
-        evento.final->siguiente = nuevoNodo;
-        evento.final = nuevoNodo;
-    }
+    enqueue(evento, reserva);
 
     cout << "Se ingreso la reserva nro " << reserva.nroReserva << " de " << reserva.nombrePersonaReserva << " para el libro " << reserva.nombreLibro << " hasta el " << reserva.fechaDevolucion << " correctamente!" << endl;
 

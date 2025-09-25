@@ -6,12 +6,19 @@
 #define UNTITLED_PILA_H
 #include "dominio.h"
 
-struct Pila{
+struct NodoPila{
 
     InfoReserva info;
-    Pila* siguiente;
+    NodoPila* siguiente;
 
 };
+
+struct Pila {
+    NodoPila* inicio;
+};
+
+//Push pila
+void pushPila(Pila& accion, InfoReserva);
 
 //Muestro Pila
 void printPilaRec(Pila);

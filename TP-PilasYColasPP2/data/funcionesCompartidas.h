@@ -10,13 +10,13 @@
 //Funciones compartidas entre estructuras!
 
 //Hago dequeue y guardo dato sacado en Pila
-void procesarSiguiente(Cola, Pila);
+void procesarSiguiente(Cola&, Pila&);
 
 //Hago busqueda recursiva dentro de Cola y Pila
 void buscarRec(Cola, Pila);
 
 //Vuelta atras del último cambio ("Control+Z")
-void deshacer(Pila,Cola);
+void deshacer(Pila&,Cola&);
 
 //Muestra "estadisticas de las listas a mostrar"
 void mostrarStats(Cola, Pila);
