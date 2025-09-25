@@ -9,7 +9,7 @@
 struct NodoPila{
 
     InfoReserva info;
-    NodoPila* siguiente;
+    NodoPila* siguiente = nullptr;
 
 };
 
@@ -18,12 +18,15 @@ struct Pila {
 };
 
 //Push pila
-void pushPila(Pila& accion, InfoReserva);
+void pushPila(Pila*& accion, InfoReserva);
+
+//Pop pila
+InfoReserva popPila(Pila*& accion);
 
 //Muestro Pila
-void printPilaRec(Pila);
+void printPilaRec(Pila*);
 
 //Libero memoria de Pila
-void clearRec(Pila);
+void clearRec(Pila*);
 
 #endif //UNTITLED_PILA_H

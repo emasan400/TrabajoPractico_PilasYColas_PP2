@@ -7,7 +7,7 @@
 #include "../data/pila.h"
 
 //Hago dequeue y guardo dato sacado en Pila
-void procesarSiguiente(Cola& evento, Pila& accion) {
+void procesarSiguiente(Cola*& evento, Pila*& accion) {
 
      //Consigo último dato de la cola
      InfoReserva datoATrabajar = dequeue(evento);
@@ -22,7 +22,7 @@ void buscarRec(Cola evento, Pila accion) {
 }
 
 //Vuelta atras del último cambio ("Control+Z")
-void deshacer(Pila& accion, Cola& evento) {
+void deshacer(Pila*& accion, Cola*& evento) {
 
 }
 

@@ -11,7 +11,7 @@
 * Mejoras! Se podian hacer funciones aparte con lo hecho en la guia y contenido de pagina 4, Clase 6, UD 4
 */
 
-void enqueue(Cola& evento, InfoReserva reserva){
+void enqueue(Cola*& evento, InfoReserva reserva){
 
     // Crear NUEVO nodo con la info leida!
     NodoCola* nuevoNodo = new NodoCola;
@@ -20,23 +20,23 @@ void enqueue(Cola& evento, InfoReserva reserva){
     nuevoNodo->siguiente = nullptr;
 
     // Agregar a la cola sin elementos (Caso 1er entrada)
-    if (evento.frente == nullptr) {
-        evento.frente = nuevoNodo;
-        evento.final = nuevoNodo;
+    if (evento->frente == nullptr) {
+        evento->frente = nuevoNodo;
+        evento->final = nuevoNodo;
     } else {
         // Agregar a la cola preexistente (Caso agregar al final "FIFO")
-        evento.final->siguiente = nuevoNodo;
-        evento.final = nuevoNodo;
+        evento->final->siguiente = nuevoNodo;
+        evento->final = nuevoNodo;
     }
 }
 
-InfoReserva dequeue(Cola& evento) {
+InfoReserva dequeue(Cola*& evento) {
 
     //Dato a retornar, creado por facilidad personal para devolver datos (Posible optimizacion en v2 con #include <queue>) LIMITACION: Si el dato a devolver es null puede generar error
     InfoReserva ret = {};
 
     //Caso lista vacia. Manejo de error en funcionesCompartidas.cpp
-    if (!evento.frente) {
+    if (!evento->frente) {
         cout << "No hay reservas!" << endl;
         return ret;
     }
@@ -44,15 +44,15 @@ InfoReserva dequeue(Cola& evento) {
     //Caso "normal"
 
     //Consigo info a retornar del primer elemento de la cola (FIFO)
-    ret = evento.frente->info;
+    ret = evento->frente->info;
 
     //Preparo delete del nodo sin desindexar la cola
-    NodoCola* aux = evento.frente;
-    evento.frente = evento.frente->siguiente;
+    NodoCola* aux = evento->frente;
+    evento->frente = evento->frente->siguiente;
 
     //Caso donde evento.frente->siguiente es el final de la cola!
-    if (!evento.frente) {
-        evento.final = nullptr;
+    if (!evento->frente) {
+        evento->final = nullptr;
     }
 
     //Libero memoria
@@ -62,7 +62,7 @@ InfoReserva dequeue(Cola& evento) {
 }
 
 //Cargo InfoReserva de manera manual en la cola
-void encolarManual(Cola& evento) {
+void encolarManual(Cola*& evento) {
 
     //Info a cargar
     InfoReserva reserva;
@@ -110,11 +110,11 @@ void encolarManual(Cola& evento) {
 }
 
 //Muestro Cola recursiva
-void printColaRec(Cola evento) {
+void printColaRec(Cola* evento) {
 
 }
 
 //Libero memoria de cola recursiva
-void clearRec(Cola& evento) {
+void clearRec(Cola*& evento) {
 
 }

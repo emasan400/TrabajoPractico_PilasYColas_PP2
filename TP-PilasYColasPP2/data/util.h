@@ -10,6 +10,6 @@
 using namespace std;
 
 //Cargar informacion del ARCHIVO a la cola. IMPORTANTE!!!
-void cargarPreset(Cola&,string);
+void cargarPreset(Cola*&,string);
 
 #endif //UNTITLED_UTIL_H

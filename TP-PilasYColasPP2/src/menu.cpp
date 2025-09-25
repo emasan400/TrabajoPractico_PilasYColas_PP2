@@ -26,16 +26,16 @@ void mostrarMenu() {
 
 void loopMenu() {
 
-    Cola eventos{};      // tu struct/clase
+    Cola* eventos{};      // tu struct/clase
 
     //Inicializo estructura cola
-    eventos.frente = nullptr;
-    eventos.frente = nullptr;
+    eventos->frente = nullptr;
+    eventos->final = nullptr;
 
-    Pila acciones{};     // tu struct/clase
+    Pila* acciones{};     // tu struct/clase
 
     //Inicializo estructura pila
-    acciones.inicio = nullptr;
+    acciones->inicio = nullptr;
 
     int op;
     do {

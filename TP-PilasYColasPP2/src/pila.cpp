@@ -5,7 +5,7 @@
 #include "../data/pila.h"
 
 //Push Pila!
-void pushPila(Pila& accion, InfoReserva reserva) {
+void pushPila(Pila*& accion, InfoReserva reserva) {
 
     //Crear NUEVO nodo con la info leida!
     NodoPila* nuevoNodo = new NodoPila;
@@ -20,18 +20,18 @@ void pushPila(Pila& accion, InfoReserva reserva) {
     accion.inicio = nuevoNodo;
 }
 
-InfoReserva pushPila(Pila& accion, InfoReserva reserva) {
+InfoReserva popPila(Pila*& accion, InfoReserva reserva) {
     InfoReserva ret = {};
 
     return ret;
 }
 
 //Muestro Pila
-void printPilaRec(Pila accion) {
+void printPilaRec(Pila* accion) {
 
 }
 
 //Libero memoria de Pila
-void clearRec(Pila accion) {
+void clearRec(Pila* accion) {
 
 }

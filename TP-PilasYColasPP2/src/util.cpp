@@ -9,7 +9,7 @@
 #include <string>
 
 //Cargar informacion del ARCHIVO a la cola. IMPORTANTE!!!
-void cargarPreset(Cola& evento, string nomArchivo) {
+void cargarPreset(Cola*& evento, string nomArchivo) {
 
     //Intenta abrir archivo con nombreDefinido
     ifstream archivo(nomArchivo);

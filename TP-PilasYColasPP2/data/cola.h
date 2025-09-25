@@ -20,18 +20,18 @@ struct Cola {
 };
 
 //Encolar dato
-void enqueue(Cola&);
+void enqueue(Cola*&);
 
 //Desencolar dato
-InfoReserva dequeue(Cola&);
+InfoReserva dequeue(Cola*&);
 
 //Cargo InfoReserva en la cola
-void encolarManual(Cola&);
+void encolarManual(Cola*&);
 
 //Muestro Cola
-void printColaRec(Cola&);
+void printColaRec(Cola*&);
 
 //Libero memoria de cola
-void clearRec(Cola&);
+void clearRec(Cola*&);
 
 #endif //UNTITLED_COLA_H
