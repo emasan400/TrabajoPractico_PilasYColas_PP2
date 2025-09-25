@@ -17,6 +17,9 @@ struct Pila {
     NodoPila* inicio;
 };
 
+//Funcion auxiliar para recursividad como solucion investigada
+void printPilaRecAux(NodoPila*);
+
 //Push pila
 void pushPila(Pila*& accion, InfoReserva);
 

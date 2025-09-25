@@ -109,9 +109,42 @@ void encolarManual(Cola*& evento) {
 
 }
 
-//Muestro Cola recursiva
+// Modificacion IMPORTANTE! Función auxiliar recursiva que recibe un NodoCola* (Error que persistia en codigo y consultado con DeepSeek)
+void printColaRecAux(NodoCola* nodo) {
+
+    // Caso base - Llegar al final de la cola
+    if (nodo == nullptr) {
+        return;
+    }
+
+    // Imprimir el nodo actual
+    cout << "Numero Reserva: " << nodo->info.nroReserva << "  Persona: " << nodo->info.nombrePersonaReserva << "  Libro: " << nodo->info.nombreLibro << "  Fecha: " << nodo->info.fechaDevolucion << endl;
+
+    // Llamada recursiva con el siguiente nodo
+    printColaRecAux(nodo->siguiente);
+}
+
+// Función principal que permite sacar el valor necesario para iterar recursivamente
 void printColaRec(Cola* evento) {
 
+    // Verificar si la cola existe y no está vacía
+    if (evento == nullptr) {
+        cout << "La cola no está inicializada!!!" << endl;
+        return;
+    }
+
+    if (evento->frente == nullptr) {
+        cout << "La cola está vacía!" << endl;
+        return;
+    }
+
+    /*
+     *Llamar a la función auxiliar recursiva. Esto fue necesario por la decision de diseño donde se hace un contenedor que
+     *tiene el inicio solamente de la cola en evento->frente. Si quiero que sea recursivo lo tengo que hacer para el dato
+     *DENTRO del nodo! Super Importante porque no dejaba solucionar error de recursividad
+    */
+
+    printColaRecAux(evento->frente);
 }
 
 //Libero memoria de cola recursiva

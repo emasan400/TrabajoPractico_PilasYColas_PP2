@@ -10,7 +10,7 @@
 struct NodoCola{
 
     InfoReserva info = {};
-    NodoCola* siguiente = nullptr;
+    NodoCola *siguiente = nullptr;
 };
 
 struct Cola {
@@ -19,8 +19,11 @@ struct Cola {
     NodoCola* final;
 };
 
+//Funcion auxiliar para recursividad como solucion investigada
+void printColaRecAux(NodoCola*);
+
 //Encolar dato
-void enqueue(Cola*&);
+void enqueue(Cola*&, InfoReserva);
 
 //Desencolar dato
 InfoReserva dequeue(Cola*&);
@@ -29,7 +32,7 @@ InfoReserva dequeue(Cola*&);
 void encolarManual(Cola*&);
 
 //Muestro Cola
-void printColaRec(Cola*&);
+void printColaRec(Cola*);
 
 //Libero memoria de cola
 void clearRec(Cola*&);
