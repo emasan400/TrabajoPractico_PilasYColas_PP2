@@ -29,7 +29,16 @@ InfoReserva popPila(Pila*& accion);
 //Muestro Pila
 void printPilaRec(Pila*);
 
+//Funcion auxiliar para recursividad por diseño
+void clearRecAux(NodoPila*&);
+
 //Libero memoria de Pila
 void clearRec(Pila*);
+
+//Funciones auxiliares para busqueda recursiva en pila por tipo de dato a buscar!!!
+bool buscarEnPilaPorNro(NodoPila*, int);
+bool buscarEnPilaPorPersona(NodoPila*, string);
+bool buscarEnPilaPorLibro(NodoPila*, string);
+bool buscarEnPilaPorFecha(NodoPila*, string);
 
 #endif //UNTITLED_PILA_H

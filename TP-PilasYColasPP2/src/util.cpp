@@ -37,13 +37,13 @@ void cargarPreset(Cola*& evento, string nomArchivo) {
         nuevoNodo->siguiente = nullptr;
 
         // Agregar a la cola sin elementos (Caso 1er entrada)
-        if (evento.frente == nullptr) {
-            evento.frente = nuevoNodo;
-            evento.final = nuevoNodo;
+        if (evento->frente == nullptr) {
+            evento->frente = nuevoNodo;
+            evento->final = nuevoNodo;
         } else {
             // Agregar a la cola preexistente (Caso agregar al final "FIFO")
-            evento.final->siguiente = nuevoNodo;
-            evento.final = nuevoNodo;
+            evento->final->siguiente = nuevoNodo;
+            evento->final = nuevoNodo;
         }
     }
 

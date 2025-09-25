@@ -54,10 +54,8 @@ void printPilaRecAux(NodoPila* nodo){
     if (nodo == nullptr) {
         return;
     }
-
     // Imprimir el nodo actual
     cout << "Numero Devolucion: " << nodo->info.nroReserva << "  Persona: " << nodo->info.nombrePersonaReserva << "  Libro: " << nodo->info.nombreLibro << "  Fecha: " << nodo->info.fechaDevolucion << endl;
-
     // Llamada recursiva con el siguiente nodo
     printPilaRecAux(nodo->siguiente);
 
@@ -86,7 +84,93 @@ void printPilaRec(Pila* evento) {
     printPilaRecAux(evento->inicio);
 }
 
-//Libero memoria de Pila
+//Funcion aux que libera la memoria para evitar fallas
+void clearRecAux(NodoPila*& nodo) {
+
+    //Caso base
+    if (nodo == nullptr) {
+        return;
+    }
+
+    //Llamada recursiva!
+    clearRecAux(nodo->siguiente);
+
+    //Libero memoria y limpio basura de nodo
+    delete nodo;
+    nodo = nullptr;
+}
+
+//Libero memoria de Pila. Necesita una funcion aux por decision de diseño!
 void clearRec(Pila* accion) {
 
+    clearRecAux(accion->inicio);
+
+}
+
+// Buscar por número de reserva en Pila (recursiva)
+bool buscarEnPilaPorNro(NodoPila* nodo, int nroBuscado) {
+
+    // Caso base
+    if (nodo == nullptr) {
+        return false;
+    }
+
+    if (nodo->info.nroReserva == nroBuscado) {
+        cout << "Encontrado!!! - Devolucion nro " << nodo->info.nroReserva << " - Persona: " << nodo->info.nombrePersonaReserva << " - Libro: " << nodo->info.nombreLibro << " - Fecha: " << nodo->info.fechaDevolucion << endl;
+        return true;
+    }
+
+    //Llamada recursiva
+    return buscarEnPilaPorNro(nodo->siguiente, nroBuscado);
+}
+
+// Buscar por persona en Pila (recursiva)
+bool buscarEnPilaPorPersona(NodoPila* nodo, string personaBuscada) {
+
+    // Caso base
+    if (nodo == nullptr) {
+        return false;
+    }
+
+    if (nodo->info.nombrePersonaReserva != personaBuscada) {
+        cout << "Encontrado!!! - Devolucion nro " << nodo->info.nroReserva << " - Persona: " << nodo->info.nombrePersonaReserva << " - Libro: " << nodo->info.nombreLibro << " - Fecha: " << nodo->info.fechaDevolucion << endl;
+        return true;
+    }
+
+    return buscarEnPilaPorPersona(nodo->siguiente, personaBuscada); // Recursividad
+}
+
+// Buscar por libro en Pila (recursiva)
+bool buscarEnPilaPorLibro(NodoPila* nodo, const string& libroBuscado) {
+
+    // Caso base
+    if (nodo == nullptr) {
+        return false;
+    }
+
+
+    if (nodo->info.nombreLibro.find(libroBuscado) != string::npos) {
+        cout << "ENCONTRADO - Accion #" << nodo->info.nroReserva
+             << " - Persona: " << nodo->info.nombrePersonaReserva
+             << " - Libro: " << nodo->info.nombreLibro
+             << " - Fecha: " << nodo->info.fechaDevolucion << endl;
+        return true;
+    }
+
+    return buscarEnPilaPorLibro(nodo->siguiente, libroBuscado); // Recursividad
+}
+
+// Buscar por fecha en Pila (recursiva)
+bool buscarEnPilaPorFecha(NodoPila* nodo, const string& fechaBuscada) {
+    if (nodo == nullptr) return false; // Caso base
+
+    if (nodo->info.fechaDevolucion.find(fechaBuscada) != string::npos) {
+        cout << "ENCONTRADO - Accion #" << nodo->info.nroReserva
+             << " - Persona: " << nodo->info.nombrePersonaReserva
+             << " - Libro: " << nodo->info.nombreLibro
+             << " - Fecha: " << nodo->info.fechaDevolucion << endl;
+        return true;
+    }
+
+    return buscarEnPilaPorFecha(nodo->siguiente, fechaBuscada); // Recursividad
 }
