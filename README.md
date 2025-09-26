@@ -124,8 +124,7 @@ Todas siguen el esquema:
 ---
 
 ## 👨‍💻 Autores
-Atadia Ignacio
-Sanchez Emanuel Andres
 
-- **Emanuel Sánchez** – Legajo XXXXXX  
+- **Sanchez, Emanuel Andres**
+- **Atadia, Ignacio**
 Facultad de Ingeniería del Ejército – Ingeniería Informática
