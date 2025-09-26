@@ -19,9 +19,6 @@ struct Cola {
     NodoCola* final;
 };
 
-//Funcion auxiliar para recursividad como solucion investigada
-void printColaRecAux(NodoCola*);
-
 //Encolar dato
 void enqueue(Cola*&, InfoPrestamo);
 
@@ -30,6 +27,9 @@ InfoPrestamo dequeue(Cola*&);
 
 //Cargo InfoPrestamo en la cola
 void encolarManual(Cola*&);
+
+//Funcion auxiliar para recursividad como solucion investigada
+void printColaRecAux(NodoCola*);
 
 //Muestro Cola
 void printColaRec(Cola*);

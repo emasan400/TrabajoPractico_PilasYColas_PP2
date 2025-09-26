@@ -30,7 +30,7 @@ InfoPrestamo popPila(Pila*&);
 void printPilaRec(Pila*);
 
 //Funcion auxiliar para recursividad por diseño
-void clearRecAux(NodoPila*&);
+void clearPilaRecAux(NodoPila*&);
 
 //Libero memoria de Pila
 void clearRec(Pila*);

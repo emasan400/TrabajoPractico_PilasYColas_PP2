@@ -23,6 +23,7 @@ void pushPila(Pila*& accion, InfoPrestamo prestamo) {
     accion->inicio = nuevoNodo;
 }
 
+//Devuelve el cargado InfoPrestamo
 InfoPrestamo popPila(Pila*& accion) {
     //Dato a retornar
     InfoPrestamo ret = {};
@@ -66,12 +67,12 @@ void printPilaRec(Pila* evento) {
 
     // Verificar si la cola existe y no está vacía
     if (evento == nullptr) {
-        cout << "La cola no esta inicializada!!!" << endl;
+        cout << "No hay prestamos o devoluciones realizadas!!!" << endl;
         return;
     }
 
     if (evento->inicio == nullptr) {
-        cout << "La cola esta vacia!" << endl;
+        cout << "La pila de prestamos y devoluciones esta vacia!" << endl;
         return;
     }
 
@@ -85,7 +86,7 @@ void printPilaRec(Pila* evento) {
 }
 
 //Funcion aux que libera la memoria para evitar fallas
-void clearRecAux(NodoPila*& nodo) {
+void clearPilaRecAux(NodoPila*& nodo) {
 
     //Caso base
     if (nodo == nullptr) {
@@ -93,7 +94,7 @@ void clearRecAux(NodoPila*& nodo) {
     }
 
     //Llamada recursiva!
-    clearRecAux(nodo->siguiente);
+    clearPilaRecAux(nodo->siguiente);
 
     //Libero memoria y limpio basura de nodo
     delete nodo;
@@ -106,7 +107,7 @@ void clearRecAux(NodoPila*& nodo) {
  * Funcionan igual. Pensar en que opcion es más optima
 */
 void clearRec(Pila* accion) {
-    clearRecAux(accion->inicio);
+    clearPilaRecAux(accion->inicio);
 }
 
 // Buscar por número de prestamo en Pila (recursiva)
