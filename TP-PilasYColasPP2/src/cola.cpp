@@ -111,12 +111,12 @@ void printColaRec(Cola* evento) {
 
     // Verificar si la cola existe y no está vacía
     if (evento == nullptr) {
-        cout << "La cola no está inicializada!!!" << endl;
+        cout << "La cola no esta inicializada!!!" << endl;
         return;
     }
 
     if (evento->frente == nullptr) {
-        cout << "La cola está vacía!" << endl;
+        cout << "La cola esta vacia!" << endl;
         return;
     }
 
@@ -147,6 +147,8 @@ void clearColaRecursiva(NodoCola*& nodo) {
 //Libero memoria de cola recursiva
 void clearRec(Cola*& evento) {
     clearColaRecursiva(evento->frente);
+
+    cout << "Se limpiaron las reservas!" << endl;
 }
 
 // Buscar por número de reserva en Cola (recursiva)

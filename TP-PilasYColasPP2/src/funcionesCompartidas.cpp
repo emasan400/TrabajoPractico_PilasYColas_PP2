@@ -19,7 +19,7 @@ void procesarSiguiente(Cola*& evento, Pila*& accion) {
      //Lo agrego al principio de la pila
      pushPila(accion,datoATrabajar);
 
-     cout << "El nro de reserva: " << datoATrabajar.nroReserva << " - Nombre: " << datoATrabajar.nombrePersonaReserva << " - Libro: " << datoATrabajar.nombreLibro << "fue devuelto!" << endl;
+     cout << "El nro de reserva: " << datoATrabajar.nroReserva << " - Nombre: " << datoATrabajar.nombrePersonaReserva << " - Libro: " << datoATrabajar.nombreLibro << " fue devuelto!" << endl;
 }
 
 //Vuelta atras del último cambio ("Control+Z")
@@ -148,11 +148,11 @@ void mostrarStats(Cola* evento, Pila* accion) {
      int contadorC = 0;
 
      contadorC = sizeColaRecursiva(nodoC);
-     cout << "El tamaño de las reservas es: " << contadorC << endl;
+     cout << "El size de las reservas es: " << contadorC << endl;
 
      NodoPila* nodoP = accion->inicio;
      int contadorP = 0;
 
      contadorP = sizePilaRecursiva(nodoP);
-     cout << "El tamaño de las devoluciones es: " << contadorP << endl;
+     cout << "El size de las devoluciones es: " << contadorP << endl;
 }

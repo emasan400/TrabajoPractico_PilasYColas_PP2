@@ -100,7 +100,11 @@ void clearRecAux(NodoPila*& nodo) {
     nodo = nullptr;
 }
 
-//Libero memoria de Pila. Necesita una funcion aux por decision de diseño!
+/*
+ * Libero memoria de Pila. Necesita una funcion aux por decision de diseño! Tiene una diferencia con clearCola!!!
+ * NO es necesario pasar por referencia el objeto Pila. SI es necesario pasar por referencia el objeto NodoPila!
+ * Funcionan igual. Pensar en que opcion es más optima
+*/
 void clearRec(Pila* accion) {
     clearRecAux(accion->inicio);
 }
