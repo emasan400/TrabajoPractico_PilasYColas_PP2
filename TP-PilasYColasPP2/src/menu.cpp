@@ -12,13 +12,13 @@ using namespace std;
 void mostrarMenu() {
     cout << "\n=== TP Pilas y Colas: Biblioteca ===\n"
     << "1) Cargar datos preset\n"
-    << "2) Realizar reserva de libro\n"
+    << "2) Procesar prestamo de libro\n"
     << "3) Procesar devolucion de libro(dequeue + push accion)\n"
     << "4) Deshacer devolucion de libro(pop + revertir)\n"
-    << "5) Mostrar reservas de libro (recursivo)\n"
-    << "6) Mostrar devoluciones de libro(recursivo)\n"
-    << "7) Buscar en reservas/devoluciones (recursivo)\n"
-    << "8) Vaciar reservas y devoluciones realizadas (recursivo)\n"
+    << "5) Mostrar prestamos de libros (recursivo)\n"
+    << "6) Mostrar devoluciones de libros (recursivo)\n"
+    << "7) Buscar en prestamos/devoluciones (recursivo)\n"
+    << "8) Vaciar prestamos y devoluciones realizadas (recursivo)\n"
     << "9) Estadisticas (size recursivo)\n"
     << "0) Salir\n"
     << "Opcion: ";

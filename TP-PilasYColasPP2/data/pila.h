@@ -8,7 +8,7 @@
 
 struct NodoPila{
 
-    InfoReserva info;
+    InfoPrestamo info;
     NodoPila* siguiente = nullptr;
 
 };
@@ -21,10 +21,10 @@ struct Pila {
 void printPilaRecAux(NodoPila*);
 
 //Push pila
-void pushPila(Pila*&, InfoReserva);
+void pushPila(Pila*&, InfoPrestamo);
 
 //Pop pila
-InfoReserva popPila(Pila*&);
+InfoPrestamo popPila(Pila*&);
 
 //Muestro Pila
 void printPilaRec(Pila*);

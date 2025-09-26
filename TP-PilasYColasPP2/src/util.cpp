@@ -22,11 +22,11 @@ void cargarPreset(Cola*& evento) {
         return;
     }
 
-    //Inicializo infoReserva para sumar al nodo
-    InfoReserva reserva;
+    //Inicializo infoPrestamo para sumar al nodo
+    InfoPrestamo prestamo;
 
     //Recorro archivo con datos separados por espacios para cargar registros! (>> mueve entre datos)
-    while (archivo >> reserva.nroReserva >> reserva.nombrePersonaReserva >> reserva.nombreLibro >> reserva.fechaDevolucion) {
+    while (archivo >> prestamo.nroPrestamo >> prestamo.nombrePersonaPrestamo >> prestamo.nombreLibro >> prestamo.fechaDevolucion) {
 
         /*
          * Mejora! Plantear parte de abajo del comentario como una funcion enqueue
@@ -35,7 +35,7 @@ void cargarPreset(Cola*& evento) {
         // Crear NUEVO nodo con la info leida!
         NodoCola* nuevoNodo = new NodoCola;
 
-        nuevoNodo->info = reserva;
+        nuevoNodo->info = prestamo;
         nuevoNodo->siguiente = nullptr;
 
         // Agregar a la cola sin elementos (Caso 1er entrada)

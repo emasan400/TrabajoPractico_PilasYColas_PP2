@@ -14,24 +14,24 @@
 void procesarSiguiente(Cola*& evento, Pila*& accion) {
 
      //Consigo último dato de la cola
-     InfoReserva datoATrabajar = dequeue(evento);
+     InfoPrestamo datoATrabajar = dequeue(evento);
 
      //Lo agrego al principio de la pila
      pushPila(accion,datoATrabajar);
 
-     cout << "El nro de reserva: " << datoATrabajar.nroReserva << " - Nombre: " << datoATrabajar.nombrePersonaReserva << " - Libro: " << datoATrabajar.nombreLibro << " fue devuelto!" << endl;
+     cout << "El nro de prestamo: " << datoATrabajar.nroPrestamo << " - Nombre: " << datoATrabajar.nombrePersonaPrestamo << " - Libro: " << datoATrabajar.nombreLibro << " fue devuelto!" << endl;
 }
 
 //Vuelta atras del último cambio ("Control+Z")
 void deshacer(Pila*& accion, Cola*& evento) {
 
      //Consigo ultimo dato de la pila
-     InfoReserva datoATrabajar = popPila(accion);
+     InfoPrestamo datoATrabajar = popPila(accion);
 
      //Lo agrego a la cola
      enqueue(evento,datoATrabajar);
 
-     cout << "El nro de reserva: " << datoATrabajar.nroReserva << " - Nombre: " << datoATrabajar.nombrePersonaReserva << " - Libro: " << datoATrabajar.nombreLibro << " recien devuelto se reservo nuevamente!" << endl;
+     cout << "El nro de prestamo: " << datoATrabajar.nroPrestamo << " - Nombre: " << datoATrabajar.nombrePersonaPrestamo << " - Libro: " << datoATrabajar.nombreLibro << " recien devuelto se reservo nuevamente!" << endl;
 
 }
 
@@ -41,10 +41,10 @@ void buscarRec(Cola* evento, Pila* accion) {
      do {
           cout << endl;
           cout << "Menu busqueda: Que dato quiere buscar? " << endl;
-          cout << "1) Nro Reserva o Devolucion" << endl;
-          cout << "2) Persona de la Reserva o Devolucion" << endl;
-          cout << "3) Libro de la Reserva o Devolucion" << endl;
-          cout << "4) Fecha de la Reserva o Devolucion" << endl;
+          cout << "1) Nro Prestamo o Devolucion" << endl;
+          cout << "2) Persona de la Prestamo o Devolucion" << endl;
+          cout << "3) Libro de la Prestamo o Devolucion" << endl;
+          cout << "4) Fecha de la Prestamo o Devolucion" << endl;
           cout << "100) Volver al menu" << endl;
           cin >> op;
 
@@ -56,7 +56,7 @@ void buscarRec(Cola* evento, Pila* accion) {
           switch(op) {
                case 1:
 
-                    cout << "Ingrese numero de reserva a buscar: ";
+                    cout << "Ingrese numero de Prestamo a buscar: ";
 
                     //LIMITACION: No estamos chequeando que efectivamente sea un entero el dato ingresado
                     cin >> nroBuscado;
@@ -65,7 +65,7 @@ void buscarRec(Cola* evento, Pila* accion) {
                     //Busco en cola por nro
                     encontrado = buscarEnColaPorNro(evento->frente, nroBuscado);
                     if (!encontrado) {
-                         cout << "No se encontro en las reservas." << endl;
+                         cout << "No se encontro en los prestamos." << endl;
                     }
 
                     //Busco en pila por nro
@@ -82,7 +82,7 @@ void buscarRec(Cola* evento, Pila* accion) {
 
                     encontrado = buscarEnColaPorPersona(evento->frente, textoBuscado);
                     if (!encontrado) {
-                         cout << "No se encontro en las reservas." << endl;
+                         cout << "No se encontro en los prestamos." << endl;
                     }
 
                     encontrado = buscarEnPilaPorPersona(accion->inicio, textoBuscado);
@@ -99,7 +99,7 @@ void buscarRec(Cola* evento, Pila* accion) {
 
                     encontrado = buscarEnColaPorLibro(evento->frente, textoBuscado);
                     if (!encontrado) {
-                         cout << "No se encontro en las reservas." << endl;
+                         cout << "No se encontro en los prestamos." << endl;
                     }
 
                     encontrado = buscarEnPilaPorLibro(accion->inicio, textoBuscado);
@@ -116,7 +116,7 @@ void buscarRec(Cola* evento, Pila* accion) {
 
                     encontrado = buscarEnColaPorFecha(evento->frente, textoBuscado);
                     if (!encontrado) {
-                         cout << "No se encontro en las reservas." << endl;
+                         cout << "No se encontro en los prestamos." << endl;
                     }
 
                     encontrado = buscarEnPilaPorFecha(accion->inicio, textoBuscado);
@@ -148,7 +148,7 @@ void mostrarStats(Cola* evento, Pila* accion) {
      int contadorC = 0;
 
      contadorC = sizeColaRecursiva(nodoC);
-     cout << "El size de las reservas es: " << contadorC << endl;
+     cout << "El size de los prestamos es: " << contadorC << endl;
 
      NodoPila* nodoP = accion->inicio;
      int contadorP = 0;

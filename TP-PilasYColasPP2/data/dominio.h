@@ -7,10 +7,10 @@
 #include <string>
 using namespace std;
 
-struct InfoReserva {
+struct InfoPrestamo {
 
-    int nroReserva;
-    string nombrePersonaReserva;
+    int nroPrestamo;
+    string nombrePersonaPrestamo;
     string nombreLibro;
     string fechaDevolucion;
 

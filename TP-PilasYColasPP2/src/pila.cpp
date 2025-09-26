@@ -8,13 +8,13 @@
 #include <ostream>
 
 //Push Pila!
-void pushPila(Pila*& accion, InfoReserva reserva) {
+void pushPila(Pila*& accion, InfoPrestamo prestamo) {
 
     //Crear NUEVO nodo con la info leida!
     NodoPila* nuevoNodo = new NodoPila;
 
     //Asignar los datos al nodo
-    nuevoNodo->info = reserva;
+    nuevoNodo->info = prestamo;
 
     //Siguiente apunta al actual inicio de la pila
     nuevoNodo->siguiente = accion->inicio;
@@ -23,9 +23,9 @@ void pushPila(Pila*& accion, InfoReserva reserva) {
     accion->inicio = nuevoNodo;
 }
 
-InfoReserva popPila(Pila*& accion) {
+InfoPrestamo popPila(Pila*& accion) {
     //Dato a retornar
-    InfoReserva ret = {};
+    InfoPrestamo ret = {};
 
     //Caso donde la pila este vacia. LIMITACION: Si el dato a devolver es null puede generar error. No encontre manejo de error que se haya enseñado en clase. Se puede manejar con throw runtime_error("Error: Pila vacía. No se puede hacer pop a la lista."); segun chatGPT y DeepSeek
     if(!accion->inicio) {
@@ -55,7 +55,7 @@ void printPilaRecAux(NodoPila* nodo){
         return;
     }
     // Imprimir el nodo actual
-    cout << "Numero Devolucion: " << nodo->info.nroReserva << "  Persona: " << nodo->info.nombrePersonaReserva << "  Libro: " << nodo->info.nombreLibro << "  Fecha: " << nodo->info.fechaDevolucion << endl;
+    cout << "Numero Devolucion: " << nodo->info.nroPrestamo << "  Persona: " << nodo->info.nombrePersonaPrestamo << "  Libro: " << nodo->info.nombreLibro << "  Fecha: " << nodo->info.fechaDevolucion << endl;
     // Llamada recursiva con el siguiente nodo
     printPilaRecAux(nodo->siguiente);
 
@@ -109,7 +109,7 @@ void clearRec(Pila* accion) {
     clearRecAux(accion->inicio);
 }
 
-// Buscar por número de reserva en Pila (recursiva)
+// Buscar por número de prestamo en Pila (recursiva)
 bool buscarEnPilaPorNro(NodoPila* nodo, int nroBuscado) {
 
     // Caso base
@@ -117,8 +117,8 @@ bool buscarEnPilaPorNro(NodoPila* nodo, int nroBuscado) {
         return false;
     }
 
-    if (nodo->info.nroReserva == nroBuscado) {
-        cout << "Encontrado!!! - Devolucion nro " << nodo->info.nroReserva << " - Persona: " << nodo->info.nombrePersonaReserva << " - Libro: " << nodo->info.nombreLibro << " - Fecha: " << nodo->info.fechaDevolucion << endl;
+    if (nodo->info.nroPrestamo == nroBuscado) {
+        cout << "Encontrado!!! - Devolucion nro " << nodo->info.nroPrestamo << " - Persona: " << nodo->info.nombrePersonaPrestamo << " - Libro: " << nodo->info.nombreLibro << " - Fecha: " << nodo->info.fechaDevolucion << endl;
         return true;
     }
 
@@ -134,8 +134,8 @@ bool buscarEnPilaPorPersona(NodoPila* nodo, string personaBuscada) {
         return false;
     }
 
-    if (nodo->info.nombrePersonaReserva == personaBuscada) {
-        cout << "Encontrado!!! - Devolucion nro " << nodo->info.nroReserva << " - Persona: " << nodo->info.nombrePersonaReserva << " - Libro: " << nodo->info.nombreLibro << " - Fecha: " << nodo->info.fechaDevolucion << endl;
+    if (nodo->info.nombrePersonaPrestamo == personaBuscada) {
+        cout << "Encontrado!!! - Devolucion nro " << nodo->info.nroPrestamo << " - Persona: " << nodo->info.nombrePersonaPrestamo << " - Libro: " << nodo->info.nombreLibro << " - Fecha: " << nodo->info.fechaDevolucion << endl;
         return true;
     }
 
@@ -152,7 +152,7 @@ bool buscarEnPilaPorLibro(NodoPila* nodo, string libroBuscado) {
 
 
     if (nodo->info.nombreLibro == libroBuscado) {
-        cout << "Encontrado!!! - Devolucion nro " << nodo->info.nroReserva << " - Persona: " << nodo->info.nombrePersonaReserva << " - Libro: " << nodo->info.nombreLibro << " - Fecha: " << nodo->info.fechaDevolucion << endl;
+        cout << "Encontrado!!! - Devolucion nro " << nodo->info.nroPrestamo << " - Persona: " << nodo->info.nombrePersonaPrestamo << " - Libro: " << nodo->info.nombreLibro << " - Fecha: " << nodo->info.fechaDevolucion << endl;
         return true;
     }
 
@@ -168,7 +168,7 @@ bool buscarEnPilaPorFecha(NodoPila* nodo,string fechaBuscada) {
     }
 
     if (nodo->info.fechaDevolucion == fechaBuscada) {
-        cout << "Encontrado!!! - Devolucion nro " << nodo->info.nroReserva << " - Persona: " << nodo->info.nombrePersonaReserva << " - Libro: " << nodo->info.nombreLibro << " - Fecha: " << nodo->info.fechaDevolucion << endl;
+        cout << "Encontrado!!! - Devolucion nro " << nodo->info.nroPrestamo << " - Persona: " << nodo->info.nombrePersonaPrestamo << " - Libro: " << nodo->info.nombreLibro << " - Fecha: " << nodo->info.fechaDevolucion << endl;
         return true;
     }
 

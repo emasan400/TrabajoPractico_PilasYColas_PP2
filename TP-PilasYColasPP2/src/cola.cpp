@@ -11,12 +11,12 @@
 * Mejoras! Se podian hacer funciones aparte con lo hecho en la guia y contenido de pagina 4, Clase 6, UD 4
 */
 
-void enqueue(Cola*& evento, InfoReserva reserva){
+void enqueue(Cola*& evento, InfoPrestamo prestamo){
 
     // Crear NUEVO nodo con la info leida!
     NodoCola* nuevoNodo = new NodoCola;
 
-    nuevoNodo->info = reserva;
+    nuevoNodo->info = prestamo;
     nuevoNodo->siguiente = nullptr;
 
     // Agregar a la cola sin elementos (Caso 1er entrada)
@@ -30,14 +30,14 @@ void enqueue(Cola*& evento, InfoReserva reserva){
     }
 }
 
-InfoReserva dequeue(Cola*& evento) {
+InfoPrestamo dequeue(Cola*& evento) {
 
     //Dato a retornar, creado por facilidad personal para devolver datos (Posible optimizacion en v2 con #include <queue>) LIMITACION: Si el dato a devolver es null puede generar error
-    InfoReserva ret = {};
+    InfoPrestamo ret = {};
 
     //Caso lista vacia. Manejo de error en funcionesCompartidas.cpp
     if (!evento->frente) {
-        cout << "No hay reservas!" << endl;
+        cout << "No hay prestamos!" << endl;
         return ret;
     }
 
@@ -61,33 +61,33 @@ InfoReserva dequeue(Cola*& evento) {
     return ret;
 }
 
-//Cargo InfoReserva de manera manual en la cola
+//Cargo InfoPrestamo de manera manual en la cola
 void encolarManual(Cola*& evento) {
 
     //Info a cargar
-    InfoReserva reserva;
+    InfoPrestamo prestamo;
 
     //Preparar info a cargar. LIMITACIONES: No verifico que sea INT realmente
-    cout << "Ingrese numero de reserva" << endl;
-    cin >> reserva.nroReserva;
+    cout << "Ingrese numero de prestamo" << endl;
+    cin >> prestamo.nroPrestamo;
     cin.ignore();
 
     //Ingreso demas info
-    cout << "Ingrese nombre de la persona que realiza la reserva" << endl;
-    cin >> reserva.nombrePersonaReserva;
+    cout << "Ingrese nombre de la persona que realiza el prestamo" << endl;
+    cin >> prestamo.nombrePersonaPrestamo;
     cout << endl;
 
     cout << "Ingrese nombre del libro retirado" << endl;
-    cin >> reserva.nombreLibro;
+    cin >> prestamo.nombreLibro;
     cout << endl;
 
     cout << "Ingrese fecha de devolucion en el siguiente formato aaaa-mm-dd" << endl;
-    cin >> reserva.fechaDevolucion;
+    cin >> prestamo.fechaDevolucion;
     cout << endl;
 
-    enqueue(evento, reserva);
+    enqueue(evento, prestamo);
 
-    cout << "Se ingreso la reserva nro " << reserva.nroReserva << " de " << reserva.nombrePersonaReserva << " para el libro " << reserva.nombreLibro << " hasta el " << reserva.fechaDevolucion << " correctamente!" << endl;
+    cout << "Se ingreso el prestamo nro " << prestamo.nroPrestamo << " de " << prestamo.nombrePersonaPrestamo << " para el libro " << prestamo.nombreLibro << " hasta el " << prestamo.fechaDevolucion << " correctamente!" << endl;
 
 }
 
@@ -100,7 +100,7 @@ void printColaRecAux(NodoCola* nodo) {
     }
 
     // Imprimir el nodo actual
-    cout << "Numero Reserva: " << nodo->info.nroReserva << "  Persona: " << nodo->info.nombrePersonaReserva << "  Libro: " << nodo->info.nombreLibro << "  Fecha: " << nodo->info.fechaDevolucion << endl;
+    cout << "Numero Prestamo: " << nodo->info.nroPrestamo << "  Persona: " << nodo->info.nombrePersonaPrestamo << "  Libro: " << nodo->info.nombreLibro << "  Fecha: " << nodo->info.fechaDevolucion << endl;
 
     // Llamada recursiva con el siguiente nodo
     printColaRecAux(nodo->siguiente);
@@ -148,10 +148,10 @@ void clearColaRecursiva(NodoCola*& nodo) {
 void clearRec(Cola*& evento) {
     clearColaRecursiva(evento->frente);
 
-    cout << "Se limpiaron las reservas!" << endl;
+    cout << "Se limpiaron los prestamos!" << endl;
 }
 
-// Buscar por número de reserva en Cola (recursiva)
+// Buscar por número de prestamo en Cola (recursiva)
 bool buscarEnColaPorNro(NodoCola* nodo, int nroBuscado) {
 
 	// Caso base
@@ -160,8 +160,8 @@ bool buscarEnColaPorNro(NodoCola* nodo, int nroBuscado) {
 		return false;
 	}
 
-    if (nodo->info.nroReserva == nroBuscado) {
-        cout << "Encontrado!!! - Reserva " << nodo->info.nroReserva << " - Persona: " << nodo->info.nombrePersonaReserva << " - Libro: " << nodo->info.nombreLibro << " - Fecha: " << nodo->info.fechaDevolucion << endl;
+    if (nodo->info.nroPrestamo == nroBuscado) {
+        cout << "Encontrado!!! - Prestamos " << nodo->info.nroPrestamo << " - Persona: " << nodo->info.nombrePersonaPrestamo << " - Libro: " << nodo->info.nombreLibro << " - Fecha: " << nodo->info.fechaDevolucion << endl;
         return true;
     }
 
@@ -176,8 +176,8 @@ bool buscarEnColaPorPersona(NodoCola* nodo, string personaBuscada) {
 		return false;
 	}
 
-    if (nodo->info.nombrePersonaReserva == personaBuscada) {
-        cout << "Encontrado!!! - Reserva " << nodo->info.nroReserva << " - Persona: " << nodo->info.nombrePersonaReserva << " - Libro: " << nodo->info.nombreLibro << " - Fecha: " << nodo->info.fechaDevolucion << endl;
+    if (nodo->info.nombrePersonaPrestamo == personaBuscada) {
+        cout << "Encontrado!!! - Prestamo " << nodo->info.nroPrestamo << " - Persona: " << nodo->info.nombrePersonaPrestamo << " - Libro: " << nodo->info.nombreLibro << " - Fecha: " << nodo->info.fechaDevolucion << endl;
         return true;
     }
 
@@ -193,7 +193,7 @@ bool buscarEnColaPorLibro(NodoCola* nodo, string libroBuscado) {
 	}
 
     if (nodo->info.nombreLibro == libroBuscado) {
-        cout << "Encontrado!!! - Reserva " << nodo->info.nroReserva << " - Persona: " << nodo->info.nombrePersonaReserva << " - Libro: " << nodo->info.nombreLibro << " - Fecha: " << nodo->info.fechaDevolucion << endl;
+        cout << "Encontrado!!! - Prestamo " << nodo->info.nroPrestamo << " - Persona: " << nodo->info.nombrePersonaPrestamo << " - Libro: " << nodo->info.nombreLibro << " - Fecha: " << nodo->info.fechaDevolucion << endl;
         return true;
     }
 
@@ -209,7 +209,7 @@ bool buscarEnColaPorFecha(NodoCola* nodo, string fechaBuscada) {
 	}
 
     if (nodo->info.fechaDevolucion == fechaBuscada) {
-        cout << "Encontrado!!! - Reserva " << nodo->info.nroReserva << " - Persona: " << nodo->info.nombrePersonaReserva << " - Libro: " << nodo->info.nombreLibro << " - Fecha: " << nodo->info.fechaDevolucion << endl;
+        cout << "Encontrado!!! - Prestamo " << nodo->info.nroPrestamo << " - Persona: " << nodo->info.nombrePersonaPrestamo << " - Libro: " << nodo->info.nombreLibro << " - Fecha: " << nodo->info.fechaDevolucion << endl;
         return true;
     }
 

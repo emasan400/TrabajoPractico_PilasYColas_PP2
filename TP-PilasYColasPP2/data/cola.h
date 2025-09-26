@@ -9,7 +9,7 @@
 //Info de esta estructura en pagina 4, clase 6, UD 4
 struct NodoCola{
 
-    InfoReserva info = {};
+    InfoPrestamo info = {};
     NodoCola *siguiente = nullptr;
 };
 
@@ -23,12 +23,12 @@ struct Cola {
 void printColaRecAux(NodoCola*);
 
 //Encolar dato
-void enqueue(Cola*&, InfoReserva);
+void enqueue(Cola*&, InfoPrestamo);
 
 //Desencolar dato
-InfoReserva dequeue(Cola*&);
+InfoPrestamo dequeue(Cola*&);
 
-//Cargo InfoReserva en la cola
+//Cargo InfoPrestamo en la cola
 void encolarManual(Cola*&);
 
 //Muestro Cola
