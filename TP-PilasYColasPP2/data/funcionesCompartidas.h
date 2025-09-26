@@ -1,6 +1,3 @@
-//
-// Created by emasa on 24/9/2025.
-//
 
 #ifndef UNTITLED_FUNCIONESCOMPARTIDAS_H
 #define UNTITLED_FUNCIONESCOMPARTIDAS_H
