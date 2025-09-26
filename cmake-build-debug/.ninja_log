@@ -1,0 +1,27 @@
+# ninja log v6
+2675	3132	7805610007909605	untitled.exe	437678e911f177ac
+23	1646	7805583110489306	CMakeFiles/untitled.dir/TP-PilasYColasPP2/src/pila.cpp.obj	b3c5cb237042d80
+19	2672	7805609981362452	CMakeFiles/untitled.dir/TP-PilasYColasPP2/src/util.cpp.obj	f4a77bf29a94f783
+138	1657	7805580503188670	CMakeFiles/untitled.dir/TP-PilasYColasPP2/src/dominio.cpp.obj	b9ddc6ee8703efb0
+44	1953	7805580502253334	CMakeFiles/untitled.dir/TP-PilasYColasPP2/src/main.cpp.obj	3cbd02fbebcc9c23
+46	1684	7805581441642362	CMakeFiles/untitled.dir/TP-PilasYColasPP2/src/funcionesCompartidas.cpp.obj	a2c7d349ba77f701
+17	1627	7805602875772658	CMakeFiles/untitled.dir/TP-PilasYColasPP2/src/menu.cpp.obj	8795f40245f0caa2
+97	2189	7805580502778575	CMakeFiles/untitled.dir/TP-PilasYColasPP2/src/cola.cpp.obj	6647caeb34c5a370
+7	650	7805611394624933	build.ninja	a6cacff81b1c0aac
+7	650	7805611394495195	C:/Users/emasa/CLionProjects/TrabajosPracticos2025/cmake-build-debug/cmake_install.cmake	a6cacff81b1c0aac
+10	620	7805611394624933	build.ninja	a6cacff81b1c0aac
+10	620	7805611394624933	C:/Users/emasa/CLionProjects/TrabajosPracticos2025/cmake-build-debug/cmake_install.cmake	a6cacff81b1c0aac
+19	2774	7805612590995094	CMakeFiles/untitled.dir/TP-PilasYColasPP2/src/util.cpp.obj	f4a77bf29a94f783
+2776	3166	7805612618554316	untitled.exe	437678e911f177ac
+22	1561	7805613644743485	CMakeFiles/untitled.dir/TP-PilasYColasPP2/src/menu.cpp.obj	8795f40245f0caa2
+1563	1932	7805613660145284	untitled.exe	437678e911f177ac
+16	1757	7805616914417236	CMakeFiles/untitled.dir/TP-PilasYColasPP2/src/cola.cpp.obj	6647caeb34c5a370
+1759	2178	7805616931837317	untitled.exe	437678e911f177ac
+60	1904	7805624085014150	CMakeFiles/untitled.dir/TP-PilasYColasPP2/src/funcionesCompartidas.cpp.obj	a2c7d349ba77f701
+39	2040	7805624084810235	CMakeFiles/untitled.dir/TP-PilasYColasPP2/src/cola.cpp.obj	6647caeb34c5a370
+19	2055	7805624084603179	CMakeFiles/untitled.dir/TP-PilasYColasPP2/src/pila.cpp.obj	b3c5cb237042d80
+2056	2463	7805624104963318	untitled.exe	437678e911f177ac
+20	1914	7805639022835659	CMakeFiles/untitled.dir/TP-PilasYColasPP2/src/pila.cpp.obj	b3c5cb237042d80
+56	1950	7805639023201355	CMakeFiles/untitled.dir/TP-PilasYColasPP2/src/funcionesCompartidas.cpp.obj	a2c7d349ba77f701
+38	2009	7805639023025689	CMakeFiles/untitled.dir/TP-PilasYColasPP2/src/cola.cpp.obj	6647caeb34c5a370
+2009	2471	7805639042718718	untitled.exe	437678e911f177ac

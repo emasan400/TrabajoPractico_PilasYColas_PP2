@@ -3,7 +3,8 @@ project(untitled)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(untitled "TP-PilasYColasPP2/src/main.cpp"
+add_executable(untitled
+        "TP-PilasYColasPP2/src/main.cpp"
         "TP-PilasYColasPP2/src/menu.cpp"
         "TP-PilasYColasPP2/data/menu.h"
         "TP-PilasYColasPP2/src/pila.cpp"
