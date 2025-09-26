@@ -147,7 +147,97 @@ void printColaRec(Cola* evento) {
     printColaRecAux(evento->frente);
 }
 
+//Libero memoria recursivamente aux
+void clearColaRecursiva(NodoCola*& nodo) {
+
+    // Caso base
+    if (nodo == nullptr)
+    {
+        return;
+    }
+
+    clearColaRecursiva(nodo->siguiente);
+    delete nodo;
+    nodo = nullptr;
+
+}
+
 //Libero memoria de cola recursiva
 void clearRec(Cola*& evento) {
+    clearColaRecursiva(evento->frente);
+}
 
+// Buscar por número de reserva en Cola (recursiva)
+bool buscarEnColaPorNro(NodoCola* nodo, int nroBuscado) {
+
+	// Caso base
+	if (nodo == nullptr)
+	{
+		return false;
+	}
+
+    if (nodo->info.nroReserva == nroBuscado) {
+        cout << "Encontrado - Reserva " << nodo->info.nroReserva << " - Persona: " << nodo->info.nombrePersonaReserva << " - Libro: " << nodo->info.nombreLibro << " - Fecha: " << nodo->info.fechaDevolucion << endl;
+        return true;
+    }
+
+    return buscarEnColaPorNro(nodo->siguiente, nroBuscado);
+}
+
+// Buscar por persona en Cola (recursiva)
+bool buscarEnColaPorPersona(NodoCola* nodo, string personaBuscada) {
+    // Caso base
+	if (nodo == nullptr)
+	{
+		return false;
+	}
+
+    if (nodo->info.nombrePersonaReserva != personaBuscada) {
+        cout << "Encontrado - Reserva " << nodo->info.nroReserva << " - Persona: " << nodo->info.nombrePersonaReserva << " - Libro: " << nodo->info.nombreLibro << " - Fecha: " << nodo->info.fechaDevolucion << endl;
+        return true;
+    }
+
+    return buscarEnColaPorPersona(nodo->siguiente, personaBuscada);
+}
+
+// Buscar por libro en Cola (recursiva)
+bool buscarEnColaPorLibro(NodoCola* nodo, string libroBuscado) {
+    // Caso base
+	if (nodo == nullptr)
+	{
+		return false;
+	}
+
+    if (nodo->info.nombreLibro != libroBuscado) {
+        cout << "Encontrado - Reserva " << nodo->info.nroReserva << " - Persona: " << nodo->info.nombrePersonaReserva << " - Libro: " << nodo->info.nombreLibro << " - Fecha: " << nodo->info.fechaDevolucion << endl;
+        return true;
+    }
+
+    return buscarEnColaPorLibro(nodo->siguiente, libroBuscado);
+}
+
+// Buscar por fecha en Cola (recursiva)
+bool buscarEnColaPorFecha(NodoCola* nodo, string fechaBuscada) {
+    // Caso base
+	if (nodo == nullptr)
+	{
+		return false;
+	}
+
+    if (nodo->info.fechaDevolucion != fechaBuscada) {
+        cout << "Encontrado - Reserva " << nodo->info.nroReserva << " - Persona: " << nodo->info.nombrePersonaReserva << " - Libro: " << nodo->info.nombreLibro << " - Fecha: " << nodo->info.fechaDevolucion << endl;
+        return true;
+    }
+
+    return buscarEnColaPorFecha(nodo->siguiente, fechaBuscada);
+}
+
+//Funcion size recursiva cola
+int sizeColaRecursiva(NodoCola* nodo) {
+    // Caso base
+    if (nodo == nullptr) {
+        return 0;
+    }
+
+    return (1 + sizeColaRecursiva(nodo->siguiente));
 }

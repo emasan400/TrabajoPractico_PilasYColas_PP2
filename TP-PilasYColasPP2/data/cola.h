@@ -34,7 +34,19 @@ void encolarManual(Cola*&);
 //Muestro Cola
 void printColaRec(Cola*);
 
+//Libero memoria recursivamente aux
+void clearColaRecursiva(NodoCola*&);
+
 //Libero memoria de cola
 void clearRec(Cola*&);
+
+//Funciones auxiliares para busqueda recursiva en cola por tipo de dato a buscar!!!
+bool buscarEnColaPorNro(NodoCola*, int);
+bool buscarEnColaPorPersona(NodoCola*, string);
+bool buscarEnColaPorLibro(NodoCola*, string);
+bool buscarEnColaPorFecha(NodoCola*, string);
+
+//Funcion size recursiva cola
+int sizeColaRecursiva(NodoCola*);
 
 #endif //UNTITLED_COLA_H

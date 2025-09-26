@@ -44,7 +44,7 @@ void buscarRec(Cola* evento, Pila* accion) {
 
           //Datos a usar para busqueda
           int nroBuscado = 0;
-          string textoBuscado = "";
+          string textoBuscado;
           bool encontrado = false;
 
           switch(op) {
@@ -141,8 +141,12 @@ void mostrarStats(Cola* evento, Pila* accion) {
      NodoCola* nodoC = evento->frente;
      int contadorC = 0;
 
+     contadorC = sizeColaRecursiva(nodoC);
+     cout << "El tamaño de las reservas es: " << contadorC << endl;
+
      NodoPila* nodoP = accion->inicio;
      int contadorP = 0;
 
-
+     contadorP = sizePilaRecursiva(nodoP);
+     cout << "El tamaño de las devoluciones es: " << contadorP << endl;
 }

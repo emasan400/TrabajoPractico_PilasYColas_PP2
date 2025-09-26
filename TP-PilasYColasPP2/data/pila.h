@@ -41,4 +41,7 @@ bool buscarEnPilaPorPersona(NodoPila*, string);
 bool buscarEnPilaPorLibro(NodoPila*, string);
 bool buscarEnPilaPorFecha(NodoPila*, string);
 
+//Funcion size recursiva pila
+int sizePilaRecursiva(NodoPila*);
+
 #endif //UNTITLED_PILA_H
