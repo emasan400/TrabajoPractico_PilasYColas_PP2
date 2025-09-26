@@ -68,7 +68,7 @@ void encolarManual(Cola*& evento) {
     InfoPrestamo prestamo;
 
     //Preparar info a cargar. LIMITACIONES: No verifico que sea INT realmente
-    cout << "Ingrese numero de prestamo" << endl;
+    cout << "Ingrese numero de solicitud de prestamo" << endl;
     cin >> prestamo.nroPrestamo;
     cin.ignore();
 
@@ -82,12 +82,12 @@ void encolarManual(Cola*& evento) {
     cout << endl;
 
     cout << "Ingrese fecha de devolucion en el siguiente formato aaaa-mm-dd" << endl;
-    cin >> prestamo.fechaDevolucion;
+    cin >> prestamo.fechaSolicitud;
     cout << endl;
 
     enqueue(evento, prestamo);
 
-    cout << "Se ingreso el prestamo nro " << prestamo.nroPrestamo << " de " << prestamo.nombrePersonaPrestamo << " para el libro " << prestamo.nombreLibro << " hasta el " << prestamo.fechaDevolucion << " correctamente!" << endl;
+    cout << "Se ingreso la solicitud de prestamo nro " << prestamo.nroPrestamo << " de " << prestamo.nombrePersonaPrestamo << " para el libro " << prestamo.nombreLibro << " hasta el " << prestamo.fechaSolicitud << " correctamente!" << endl;
 
 }
 
@@ -100,7 +100,7 @@ void printColaRecAux(NodoCola* nodo) {
     }
 
     // Imprimir el nodo actual
-    cout << "Numero Prestamo: " << nodo->info.nroPrestamo << "  Persona: " << nodo->info.nombrePersonaPrestamo << "  Libro: " << nodo->info.nombreLibro << "  Fecha: " << nodo->info.fechaDevolucion << endl;
+    cout << "Numero Solicitud Prestamo: " << nodo->info.nroPrestamo << "  Persona: " << nodo->info.nombrePersonaPrestamo << "  Libro: " << nodo->info.nombreLibro << "  Fecha Solicitud: " << nodo->info.fechaSolicitud << endl;
 
     // Llamada recursiva con el siguiente nodo
     printColaRecAux(nodo->siguiente);
@@ -111,12 +111,12 @@ void printColaRec(Cola* evento) {
 
     // Verificar si la cola existe y no está vacía
     if (evento == nullptr) {
-        cout << "La cola no esta inicializada!!!" << endl;
+        cout << "No hay solicitudes de prestamos realizados!!!" << endl;
         return;
     }
 
     if (evento->frente == nullptr) {
-        cout << "La cola esta vacia!" << endl;
+        cout << "La cola de prestamos o devoluciones esta vacia!" << endl;
         return;
     }
 
@@ -148,7 +148,7 @@ void clearColaRecursiva(NodoCola*& nodo) {
 void clearRec(Cola*& evento) {
     clearColaRecursiva(evento->frente);
 
-    cout << "Se limpiaron los prestamos!" << endl;
+    cout << "Se limpiaron las solicitudes de prestamos!" << endl;
 
     // ANOTACION! Se agrega este apartado en las colas para que se ASEGURE que la estructura COLA quede limpia
     delete evento->final;
@@ -166,7 +166,7 @@ bool buscarEnColaPorNro(NodoCola* nodo, int nroBuscado) {
 	}
 
     if (nodo->info.nroPrestamo == nroBuscado) {
-        cout << "Encontrado!!! - Prestamos " << nodo->info.nroPrestamo << " - Persona: " << nodo->info.nombrePersonaPrestamo << " - Libro: " << nodo->info.nombreLibro << " - Fecha: " << nodo->info.fechaDevolucion << endl;
+        cout << "Encontrado!!! - Solicitud de prestamo " << nodo->info.nroPrestamo << " - Persona: " << nodo->info.nombrePersonaPrestamo << " - Libro: " << nodo->info.nombreLibro << " - Fecha: " << nodo->info.fechaSolicitud << endl;
         return true;
     }
 
@@ -182,7 +182,7 @@ bool buscarEnColaPorPersona(NodoCola* nodo, string personaBuscada) {
 	}
 
     if (nodo->info.nombrePersonaPrestamo == personaBuscada) {
-        cout << "Encontrado!!! - Prestamo " << nodo->info.nroPrestamo << " - Persona: " << nodo->info.nombrePersonaPrestamo << " - Libro: " << nodo->info.nombreLibro << " - Fecha: " << nodo->info.fechaDevolucion << endl;
+        cout << "Encontrado!!! - Solicitud de prestamo " << nodo->info.nroPrestamo << " - Persona: " << nodo->info.nombrePersonaPrestamo << " - Libro: " << nodo->info.nombreLibro << " - Fecha: " << nodo->info.fechaSolicitud << endl;
         return true;
     }
 
@@ -198,7 +198,7 @@ bool buscarEnColaPorLibro(NodoCola* nodo, string libroBuscado) {
 	}
 
     if (nodo->info.nombreLibro == libroBuscado) {
-        cout << "Encontrado!!! - Prestamo " << nodo->info.nroPrestamo << " - Persona: " << nodo->info.nombrePersonaPrestamo << " - Libro: " << nodo->info.nombreLibro << " - Fecha: " << nodo->info.fechaDevolucion << endl;
+        cout << "Encontrado!!! - Solicitud de prestamo " << nodo->info.nroPrestamo << " - Persona: " << nodo->info.nombrePersonaPrestamo << " - Libro: " << nodo->info.nombreLibro << " - Fecha: " << nodo->info.fechaSolicitud << endl;
         return true;
     }
 
@@ -213,8 +213,8 @@ bool buscarEnColaPorFecha(NodoCola* nodo, string fechaBuscada) {
 		return false;
 	}
 
-    if (nodo->info.fechaDevolucion == fechaBuscada) {
-        cout << "Encontrado!!! - Prestamo " << nodo->info.nroPrestamo << " - Persona: " << nodo->info.nombrePersonaPrestamo << " - Libro: " << nodo->info.nombreLibro << " - Fecha: " << nodo->info.fechaDevolucion << endl;
+    if (nodo->info.fechaSolicitud == fechaBuscada) {
+        cout << "Encontrado!!! - Solicitud de prestamo " << nodo->info.nroPrestamo << " - Persona: " << nodo->info.nombrePersonaPrestamo << " - Libro: " << nodo->info.nombreLibro << " - Fecha: " << nodo->info.fechaSolicitud << endl;
         return true;
     }
 

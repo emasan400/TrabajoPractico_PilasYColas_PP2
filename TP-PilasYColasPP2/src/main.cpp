@@ -8,6 +8,7 @@ using namespace std;
 *   Video util para entender pilas y colas https://www.youtube.com/watch?v=_-VsffQPprk
 *   Bibliografia https://isocpp.org/get-started
 *   Repositorio https://github.com/emasan400/TrabajoPractico_PilasYColas_PP2.git
+*   Para entendimiento de consigna. Las colas son Stock y las pilas almacenan Devoluciones y Prestamos realizados!!!
  */
 
 #include "../data/menu.h"

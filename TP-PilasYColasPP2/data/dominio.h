@@ -12,7 +12,7 @@ struct InfoPrestamo {
     int nroPrestamo;
     string nombrePersonaPrestamo;
     string nombreLibro;
-    string fechaDevolucion;
+    string fechaSolicitud;
 
 };
 

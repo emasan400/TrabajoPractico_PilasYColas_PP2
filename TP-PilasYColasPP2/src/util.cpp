@@ -17,7 +17,7 @@ void cargarPreset(Cola*& evento) {
 
     //Manejo de error
     if (!archivo.is_open()) {
-        cout << "Error: No se pudo abrir el archivo data/preset_biblioteca.txt" << endl;
+        cout << "Error: No se pudo abrir el archivo ../TP-PilasYColasPP2/data/preset_biblioteca.txt" << endl;
         cout << filesystem::current_path() << endl;
         return;
     }
@@ -26,7 +26,7 @@ void cargarPreset(Cola*& evento) {
     InfoPrestamo prestamo;
 
     //Recorro archivo con datos separados por espacios para cargar registros! (>> mueve entre datos)
-    while (archivo >> prestamo.nroPrestamo >> prestamo.nombrePersonaPrestamo >> prestamo.nombreLibro >> prestamo.fechaDevolucion) {
+    while (archivo >> prestamo.nroPrestamo >> prestamo.nombrePersonaPrestamo >> prestamo.nombreLibro >> prestamo.fechaSolicitud) {
 
         /*
          * Mejora! Plantear parte de abajo del comentario como una funcion enqueue
@@ -52,5 +52,5 @@ void cargarPreset(Cola*& evento) {
     //Importante!!! Cierro archivo despues de carga
     archivo.close();
 
-    cout << "Carga completada desde: data/preset_biblioteca.txt " << endl;
+    cout << "Carga completada de pedidos desde: ../TP-PilasYColasPP2/data/preset_biblioteca.txt" << endl;
 }

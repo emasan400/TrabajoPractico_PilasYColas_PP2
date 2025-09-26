@@ -55,7 +55,7 @@ void printPilaRecAux(NodoPila* nodo){
         return;
     }
     // Imprimir el nodo actual
-    cout << "Numero Devolucion: " << nodo->info.nroPrestamo << "  Persona: " << nodo->info.nombrePersonaPrestamo << "  Libro: " << nodo->info.nombreLibro << "  Fecha: " << nodo->info.fechaDevolucion << endl;
+    cout << "Numero Devolucion o Prestamo: " << nodo->info.nroPrestamo << "  Persona: " << nodo->info.nombrePersonaPrestamo << "  Libro: " << nodo->info.nombreLibro << "  Fecha: " << nodo->info.fechaSolicitud << endl;
     // Llamada recursiva con el siguiente nodo
     printPilaRecAux(nodo->siguiente);
 
@@ -118,7 +118,7 @@ bool buscarEnPilaPorNro(NodoPila* nodo, int nroBuscado) {
     }
 
     if (nodo->info.nroPrestamo == nroBuscado) {
-        cout << "Encontrado!!! - Devolucion nro " << nodo->info.nroPrestamo << " - Persona: " << nodo->info.nombrePersonaPrestamo << " - Libro: " << nodo->info.nombreLibro << " - Fecha: " << nodo->info.fechaDevolucion << endl;
+        cout << "Encontrado!!! - Devolucion nro " << nodo->info.nroPrestamo << " - Persona: " << nodo->info.nombrePersonaPrestamo << " - Libro: " << nodo->info.nombreLibro << " - Fecha: " << nodo->info.fechaSolicitud << endl;
         return true;
     }
 
@@ -135,7 +135,7 @@ bool buscarEnPilaPorPersona(NodoPila* nodo, string personaBuscada) {
     }
 
     if (nodo->info.nombrePersonaPrestamo == personaBuscada) {
-        cout << "Encontrado!!! - Devolucion nro " << nodo->info.nroPrestamo << " - Persona: " << nodo->info.nombrePersonaPrestamo << " - Libro: " << nodo->info.nombreLibro << " - Fecha: " << nodo->info.fechaDevolucion << endl;
+        cout << "Encontrado!!! - Devolucion nro " << nodo->info.nroPrestamo << " - Persona: " << nodo->info.nombrePersonaPrestamo << " - Libro: " << nodo->info.nombreLibro << " - Fecha: " << nodo->info.fechaSolicitud << endl;
         return true;
     }
 
@@ -152,7 +152,7 @@ bool buscarEnPilaPorLibro(NodoPila* nodo, string libroBuscado) {
 
 
     if (nodo->info.nombreLibro == libroBuscado) {
-        cout << "Encontrado!!! - Devolucion nro " << nodo->info.nroPrestamo << " - Persona: " << nodo->info.nombrePersonaPrestamo << " - Libro: " << nodo->info.nombreLibro << " - Fecha: " << nodo->info.fechaDevolucion << endl;
+        cout << "Encontrado!!! - Devolucion nro " << nodo->info.nroPrestamo << " - Persona: " << nodo->info.nombrePersonaPrestamo << " - Libro: " << nodo->info.nombreLibro << " - Fecha: " << nodo->info.fechaSolicitud << endl;
         return true;
     }
 
@@ -167,8 +167,8 @@ bool buscarEnPilaPorFecha(NodoPila* nodo,string fechaBuscada) {
         return false;
     }
 
-    if (nodo->info.fechaDevolucion == fechaBuscada) {
-        cout << "Encontrado!!! - Devolucion nro " << nodo->info.nroPrestamo << " - Persona: " << nodo->info.nombrePersonaPrestamo << " - Libro: " << nodo->info.nombreLibro << " - Fecha: " << nodo->info.fechaDevolucion << endl;
+    if (nodo->info.fechaSolicitud == fechaBuscada) {
+        cout << "Encontrado!!! - Devolucion nro " << nodo->info.nroPrestamo << " - Persona: " << nodo->info.nombrePersonaPrestamo << " - Libro: " << nodo->info.nombreLibro << " - Fecha: " << nodo->info.fechaSolicitud << endl;
         return true;
     }
 
