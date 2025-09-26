@@ -149,6 +149,11 @@ void clearRec(Cola*& evento) {
     clearColaRecursiva(evento->frente);
 
     cout << "Se limpiaron los prestamos!" << endl;
+
+    // ANOTACION! Se agrega este apartado en las colas para que se ASEGURE que la estructura COLA quede limpia
+    delete evento->final;
+    evento->final = nullptr;
+
 }
 
 // Buscar por número de prestamo en Cola (recursiva)
