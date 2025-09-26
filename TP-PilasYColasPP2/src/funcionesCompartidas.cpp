@@ -129,7 +129,8 @@ void buscarRec(Cola* evento, Pila* accion) {
                     break;
                case 100:
 
-                    cout << "Volviendo al menu principal" << endl;
+                    cout << "Volviendo al menu principal." << endl;
+                    cout << endl;
 
                     break;
 
