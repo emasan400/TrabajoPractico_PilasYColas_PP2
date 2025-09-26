@@ -7,16 +7,18 @@
 #include <fstream>
 #include <iostream>
 #include <string>
+#include <filesystem>
 
 //Cargar informacion del ARCHIVO a la cola. IMPORTANTE!!!
-void cargarPreset(Cola*& evento, string nomArchivo) {
+void cargarPreset(Cola*& evento) {
 
     //Intenta abrir archivo con nombreDefinido
-    ifstream archivo(nomArchivo);
+    ifstream archivo("../TP-PilasYColasPP2/data/preset_biblioteca.txt");
 
     //Manejo de error
     if (!archivo.is_open()) {
-        cout << "Error: No se pudo abrir el archivo " << nomArchivo << endl;
+        cout << "Error: No se pudo abrir el archivo data/preset_biblioteca.txt" << endl;
+        cout << filesystem::current_path() << endl;
         return;
     }
 
@@ -50,5 +52,5 @@ void cargarPreset(Cola*& evento, string nomArchivo) {
     //Importante!!! Cierro archivo despues de carga
     archivo.close();
 
-    cout << "Carga completada desde: " << nomArchivo << endl;
+    cout << "Carga completada desde: data/preset_biblioteca.txt " << endl;
 }

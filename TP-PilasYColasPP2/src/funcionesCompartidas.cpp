@@ -18,6 +18,8 @@ void procesarSiguiente(Cola*& evento, Pila*& accion) {
 
      //Lo agrego al principio de la pila
      pushPila(accion,datoATrabajar);
+
+     cout << "El nro de reserva: " << datoATrabajar.nroReserva << " - Nombre: " << datoATrabajar.nombrePersonaReserva << " - Libro: " << datoATrabajar.nombreLibro << "fue devuelto!" << endl;
 }
 
 //Vuelta atras del último cambio ("Control+Z")
@@ -28,12 +30,16 @@ void deshacer(Pila*& accion, Cola*& evento) {
 
      //Lo agrego a la cola
      enqueue(evento,datoATrabajar);
+
+     cout << "El nro de reserva: " << datoATrabajar.nroReserva << " - Nombre: " << datoATrabajar.nombrePersonaReserva << " - Libro: " << datoATrabajar.nombreLibro << " recien devuelto se reservo nuevamente!" << endl;
+
 }
 
 //Hago busqueda recursiva dentro de Cola y Pila
 void buscarRec(Cola* evento, Pila* accion) {
      int op;
      do {
+          cout << endl;
           cout << "Menu busqueda: Que dato quiere buscar? " << endl;
           cout << "1) Nro Reserva o Devolucion" << endl;
           cout << "2) Persona de la Reserva o Devolucion" << endl;

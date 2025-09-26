@@ -14,6 +14,7 @@ add_executable(untitled "TP-PilasYColasPP2/src/main.cpp"
         "TP-PilasYColasPP2/data/util.h"
         "TP-PilasYColasPP2/src/dominio.cpp"
         "TP-PilasYColasPP2/data/dominio.h"
-        TP-PilasYColasPP2/src/funcionesCompartidas.cpp
-        TP-PilasYColasPP2/data/funcionesCompartidas.h
+        "TP-PilasYColasPP2/src/funcionesCompartidas.cpp"
+        "TP-PilasYColasPP2/data/funcionesCompartidas.h"
+        "TP-PilasYColasPP2/data/preset_biblioteca.txt"
 )

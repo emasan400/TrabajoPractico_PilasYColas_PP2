@@ -67,28 +67,10 @@ void encolarManual(Cola*& evento) {
     //Info a cargar
     InfoReserva reserva;
 
-    //Preparar info a cargar
+    //Preparar info a cargar. LIMITACIONES: No verifico que sea INT realmente
     cout << "Ingrese numero de reserva" << endl;
     cin >> reserva.nroReserva;
-    bool control = false;
-
-    //Verificacion de dato ingresado!!! Si o si tiene que ser int
-    while (!control) {
-        cout << "Ingrese numero de reserva: ";
-        if (cin >> reserva.nroReserva) {
-            // Si llegamos aca es un numero valido
-            control = true;
-            // Importante! Limpiar buffer porque estoy leyendo un int! Siempre queda un \n al final que despues molesta ingreso de datos
-            cin.ignore();
-        } else {
-            // Si llegamos aca NO es un numero
-            cout << "Error: Debe ingresar un numero entero valido" << endl;
-            //Cuando cin falla, se bloquea con flag de error. El metodo llamado permite ingresar datos despues del error!
-            cin.clear();
-            //Permite ignorar lo ingresado por consola. LIMITACION: Si alguien ingresa más de 1000 caracteres erroneos o no pone \n al final el programa falla!
-            cin.ignore(1000, '\n');
-        }
-    }
+    cin.ignore();
 
     //Ingreso demas info
     cout << "Ingrese nombre de la persona que realiza la reserva" << endl;
@@ -177,7 +159,7 @@ bool buscarEnColaPorNro(NodoCola* nodo, int nroBuscado) {
 	}
 
     if (nodo->info.nroReserva == nroBuscado) {
-        cout << "Encontrado - Reserva " << nodo->info.nroReserva << " - Persona: " << nodo->info.nombrePersonaReserva << " - Libro: " << nodo->info.nombreLibro << " - Fecha: " << nodo->info.fechaDevolucion << endl;
+        cout << "Encontrado!!! - Reserva " << nodo->info.nroReserva << " - Persona: " << nodo->info.nombrePersonaReserva << " - Libro: " << nodo->info.nombreLibro << " - Fecha: " << nodo->info.fechaDevolucion << endl;
         return true;
     }
 
@@ -193,7 +175,7 @@ bool buscarEnColaPorPersona(NodoCola* nodo, string personaBuscada) {
 	}
 
     if (nodo->info.nombrePersonaReserva != personaBuscada) {
-        cout << "Encontrado - Reserva " << nodo->info.nroReserva << " - Persona: " << nodo->info.nombrePersonaReserva << " - Libro: " << nodo->info.nombreLibro << " - Fecha: " << nodo->info.fechaDevolucion << endl;
+        cout << "Encontrado!!! - Reserva " << nodo->info.nroReserva << " - Persona: " << nodo->info.nombrePersonaReserva << " - Libro: " << nodo->info.nombreLibro << " - Fecha: " << nodo->info.fechaDevolucion << endl;
         return true;
     }
 
@@ -209,7 +191,7 @@ bool buscarEnColaPorLibro(NodoCola* nodo, string libroBuscado) {
 	}
 
     if (nodo->info.nombreLibro != libroBuscado) {
-        cout << "Encontrado - Reserva " << nodo->info.nroReserva << " - Persona: " << nodo->info.nombrePersonaReserva << " - Libro: " << nodo->info.nombreLibro << " - Fecha: " << nodo->info.fechaDevolucion << endl;
+        cout << "Encontrado!!! - Reserva " << nodo->info.nroReserva << " - Persona: " << nodo->info.nombrePersonaReserva << " - Libro: " << nodo->info.nombreLibro << " - Fecha: " << nodo->info.fechaDevolucion << endl;
         return true;
     }
 
@@ -225,7 +207,7 @@ bool buscarEnColaPorFecha(NodoCola* nodo, string fechaBuscada) {
 	}
 
     if (nodo->info.fechaDevolucion != fechaBuscada) {
-        cout << "Encontrado - Reserva " << nodo->info.nroReserva << " - Persona: " << nodo->info.nombrePersonaReserva << " - Libro: " << nodo->info.nombreLibro << " - Fecha: " << nodo->info.fechaDevolucion << endl;
+        cout << "Encontrado!!! - Reserva " << nodo->info.nroReserva << " - Persona: " << nodo->info.nombrePersonaReserva << " - Libro: " << nodo->info.nombreLibro << " - Fecha: " << nodo->info.fechaDevolucion << endl;
         return true;
     }
 

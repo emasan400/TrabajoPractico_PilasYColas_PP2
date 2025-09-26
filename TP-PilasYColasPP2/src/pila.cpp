@@ -66,12 +66,12 @@ void printPilaRec(Pila* evento) {
 
     // Verificar si la cola existe y no está vacía
     if (evento == nullptr) {
-        cout << "La cola no está inicializada!!!" << endl;
+        cout << "La cola no esta inicializada!!!" << endl;
         return;
     }
 
     if (evento->inicio == nullptr) {
-        cout << "La cola está vacía!" << endl;
+        cout << "La cola esta vacia!" << endl;
         return;
     }
 
@@ -148,7 +148,7 @@ bool buscarEnPilaPorLibro(NodoPila* nodo, string libroBuscado) {
 
 
     if (nodo->info.nombreLibro != libroBuscado) {
-        cout << "Encontrado! - Devolucion nro " << nodo->info.nroReserva << " - Persona: " << nodo->info.nombrePersonaReserva << " - Libro: " << nodo->info.nombreLibro << " - Fecha: " << nodo->info.fechaDevolucion << endl;
+        cout << "Encontrado!!! - Devolucion nro " << nodo->info.nroReserva << " - Persona: " << nodo->info.nombrePersonaReserva << " - Libro: " << nodo->info.nombreLibro << " - Fecha: " << nodo->info.fechaDevolucion << endl;
         return true;
     }
 
@@ -164,7 +164,7 @@ bool buscarEnPilaPorFecha(NodoPila* nodo,string fechaBuscada) {
     }
 
     if (nodo->info.fechaDevolucion != fechaBuscada) {
-        cout << "Encontrado! - Devolucion nro " << nodo->info.nroReserva << " - Persona: " << nodo->info.nombrePersonaReserva << " - Libro: " << nodo->info.nombreLibro << " - Fecha: " << nodo->info.fechaDevolucion << endl;
+        cout << "Encontrado!!! - Devolucion nro " << nodo->info.nroReserva << " - Persona: " << nodo->info.nombrePersonaReserva << " - Libro: " << nodo->info.nombreLibro << " - Fecha: " << nodo->info.fechaDevolucion << endl;
         return true;
     }
 
