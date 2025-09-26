@@ -134,7 +134,7 @@ bool buscarEnPilaPorPersona(NodoPila* nodo, string personaBuscada) {
         return false;
     }
 
-    if (nodo->info.nombrePersonaReserva != personaBuscada) {
+    if (nodo->info.nombrePersonaReserva == personaBuscada) {
         cout << "Encontrado!!! - Devolucion nro " << nodo->info.nroReserva << " - Persona: " << nodo->info.nombrePersonaReserva << " - Libro: " << nodo->info.nombreLibro << " - Fecha: " << nodo->info.fechaDevolucion << endl;
         return true;
     }
@@ -151,7 +151,7 @@ bool buscarEnPilaPorLibro(NodoPila* nodo, string libroBuscado) {
     }
 
 
-    if (nodo->info.nombreLibro != libroBuscado) {
+    if (nodo->info.nombreLibro == libroBuscado) {
         cout << "Encontrado!!! - Devolucion nro " << nodo->info.nroReserva << " - Persona: " << nodo->info.nombrePersonaReserva << " - Libro: " << nodo->info.nombreLibro << " - Fecha: " << nodo->info.fechaDevolucion << endl;
         return true;
     }
@@ -167,7 +167,7 @@ bool buscarEnPilaPorFecha(NodoPila* nodo,string fechaBuscada) {
         return false;
     }
 
-    if (nodo->info.fechaDevolucion != fechaBuscada) {
+    if (nodo->info.fechaDevolucion == fechaBuscada) {
         cout << "Encontrado!!! - Devolucion nro " << nodo->info.nroReserva << " - Persona: " << nodo->info.nombrePersonaReserva << " - Libro: " << nodo->info.nombreLibro << " - Fecha: " << nodo->info.fechaDevolucion << endl;
         return true;
     }

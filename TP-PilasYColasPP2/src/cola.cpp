@@ -176,7 +176,7 @@ bool buscarEnColaPorPersona(NodoCola* nodo, string personaBuscada) {
 		return false;
 	}
 
-    if (nodo->info.nombrePersonaReserva != personaBuscada) {
+    if (nodo->info.nombrePersonaReserva == personaBuscada) {
         cout << "Encontrado!!! - Reserva " << nodo->info.nroReserva << " - Persona: " << nodo->info.nombrePersonaReserva << " - Libro: " << nodo->info.nombreLibro << " - Fecha: " << nodo->info.fechaDevolucion << endl;
         return true;
     }
@@ -192,7 +192,7 @@ bool buscarEnColaPorLibro(NodoCola* nodo, string libroBuscado) {
 		return false;
 	}
 
-    if (nodo->info.nombreLibro != libroBuscado) {
+    if (nodo->info.nombreLibro == libroBuscado) {
         cout << "Encontrado!!! - Reserva " << nodo->info.nroReserva << " - Persona: " << nodo->info.nombrePersonaReserva << " - Libro: " << nodo->info.nombreLibro << " - Fecha: " << nodo->info.fechaDevolucion << endl;
         return true;
     }
@@ -208,7 +208,7 @@ bool buscarEnColaPorFecha(NodoCola* nodo, string fechaBuscada) {
 		return false;
 	}
 
-    if (nodo->info.fechaDevolucion != fechaBuscada) {
+    if (nodo->info.fechaDevolucion == fechaBuscada) {
         cout << "Encontrado!!! - Reserva " << nodo->info.nroReserva << " - Persona: " << nodo->info.nombrePersonaReserva << " - Libro: " << nodo->info.nombreLibro << " - Fecha: " << nodo->info.fechaDevolucion << endl;
         return true;
     }
