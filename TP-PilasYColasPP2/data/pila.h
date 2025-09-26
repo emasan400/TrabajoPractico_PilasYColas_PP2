@@ -21,10 +21,10 @@ struct Pila {
 void printPilaRecAux(NodoPila*);
 
 //Push pila
-void pushPila(Pila*& accion, InfoReserva);
+void pushPila(Pila*&, InfoReserva);
 
 //Pop pila
-InfoReserva popPila(Pila*& accion);
+InfoReserva popPila(Pila*&);
 
 //Muestro Pila
 void printPilaRec(Pila*);

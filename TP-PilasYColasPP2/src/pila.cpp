@@ -23,7 +23,7 @@ void pushPila(Pila*& accion, InfoReserva reserva) {
     accion->inicio = nuevoNodo;
 }
 
-InfoReserva popPila(Pila*& accion, InfoReserva reserva) {
+InfoReserva popPila(Pila*& accion) {
     //Dato a retornar
     InfoReserva ret = {};
 
